@@ -32,6 +32,10 @@ MenuAnimGeneral = function()
 				value = "drill"
 			},
 			{
+				label = Config.GangAnims,
+				value = "gangs"
+			},
+			{
 				label = Config.MurosAnims,
 				value = "muros"
 			},
@@ -66,11 +70,153 @@ MenuAnimGeneral = function()
 		elseif data.current.value == "dog" then
 			MenuAnimsDog()
 		elseif data.current.value == "cancel" then
-			ClearPedTasks(PlayerPedId())
+			ClearPedTasksImmediately(PlayerPedId())
+		elseif data.current.value == "gangs" then
+			MenuAnimsGangs()
 		end
 	end, function(data, menu)
 		menu.close();
 	end)
+end
+
+
+-- Gangs
+MenuAnimsGangs = function()
+
+	local id = PlayerPedId()
+	local name = GetPlayerName(PlayerId())
+
+	ESX.UI.Menu.CloseAll();
+
+	ESX.UI.Menu.Open("default", GetCurrentResourceName(), "menu_gangs", {
+		title = Config.GangTitle,
+		align = Config.GangAlign,
+		elements = {
+			{
+				label = Config.gangsign1,
+				value = "gangsign1"
+			},
+			{
+				label = Config.gangsign2,
+				value = "gangsign2"
+			},
+			{
+				label = Config.gangsign3,
+				value = "gangsign3"
+			},
+			{
+				label = Config.gangsign4,
+				value = "gangsign4"
+			},
+			{
+				label = Config.gangsign5,
+				value = "gangsign5"
+			},
+			{
+				label = Config.gangsign6,
+				value = "gangsign6"
+			},
+			{
+				label = Config.gangsign7,
+				value = "gangsign7"
+			},
+			{
+				label = Config.gangsign8,
+				value = "gangsign8"
+			},
+			{
+				label = Config.gangsign9,
+				value = "gangsign9"
+			},	
+			{
+				label = Config.gangsign10,
+				value = "gangsign10"
+			},
+			{
+				label = Config.gangsign11,
+				value = "gangsign11"
+			},
+			{
+				label = Config.gangsign12,
+				value = "gangsign12"
+			},
+			{
+				label = Config.gangsign13,
+				value = "gangsign13"
+			},
+			{
+				label = Config.gangsign14,
+				value = "gangsign14"
+			},
+			{
+				label = Config.gangsign15,
+				value = "gangsign15"
+			},
+			{
+				label = Config.gangsign16,
+				value = "gangsign16"
+			},
+			{
+				label = Config.gangsign17,
+				value = "gangsign17"
+			},
+			{
+				label = Config.gangsign18,
+				value = "gangsign18"
+			},
+			{
+				label = Config.gangsign19,
+				value = "gangsign19"
+			},
+		}
+	}, function(data, menu)
+		if data.current.value == "gangsign1" then
+			hacerAnim(id, "pepitosign4@animation", "pepitosign4_clip")
+		elseif data.current.value == "gangsign2" then
+			hacerAnim(id, "qpacc@gangsign1", "gangsign1_clip")
+		elseif data.current.value == "gangsign3" then
+			hacerAnim(id, "qpacc@gangsign2", "gangsign2_clip")
+		elseif data.current.value == "gangsign4" then
+			hacerAnim(id, "qpacc@gangsign3", "gangsign3_clip")
+		elseif data.current.value == "gangsign5" then
+			hacerAnim(id, "qpacc@gangsign4", "gangsign4_clip")
+		elseif data.current.value == "gangsign6" then
+			hacerAnim(id, "qpacc@gangsign5", "gangsign5_clip")
+		elseif data.current.value == "gangsign7" then
+			hacerAnim(id, "qpacc@gangsign6", "gangsign6_clip")
+		elseif data.current.value == "gangsign8" then
+			hacerAnim(id, "qpacc@gangsign7", "gangsign7_clip")
+		elseif data.current.value == "gangsign9" then
+			hacerAnim(id, "qpacc@gangsign8", "gangsign8_clip")
+		elseif data.current.value == "gangsign10" then
+			hacerAnim(PlayerPedId(), "azzsign@animation", "azzsign_clip")
+		elseif data.current.value == "gangsign11" then
+			hacerAnim(PlayerPedId(), "azzsign2@animation", "azzsign2_clip")
+		elseif data.current.value == "gangsign12" then
+			hacerAnim(PlayerPedId(), "azzsign3@animation", "azzsign3_clip")
+		elseif data.current.value == "gangsign13" then
+			hacerAnim(PlayerPedId(), "azzsign4@animation", "azzsign4_clip")
+		elseif data.current.value == "gangsign14" then
+			hacerAnim(PlayerPedId(), "azzsign5@animation", "azzsign5_clip")
+		elseif data.current.value == "gangsign15" then
+			hacerAnim(PlayerPedId(), "mogangsign1@animation", "mogangsign1_clip")
+		elseif data.current.value == "gangsign16" then
+			hacerAnim(PlayerPedId(), "mopose2@animation", "mopose2_clip")
+		elseif data.current.value == "gangsign17" then
+			hacerAnim(PlayerPedId(), "mopose3@animation", "mopose3_anim")
+		elseif data.current.value == "gangsign17" then
+			hacerAnim(PlayerPedId(), "mopose5@animation", "mopose5_clip")
+		elseif data.current.value == "gangsign18" then
+			hacerAnim(PlayerPedId(), "anim@male@holding_weapon_2", "holding_weapon_2_clip")
+		elseif data.current.value == "gangsign19" then
+			hacerAnim(id, "glock@animation", "dk_clip")
+		--elseif data.current.value == "gangsign10" then
+			--hacerAnim(id, "glock@animation", "dk_clip")
+		end
+	end, function(data, menu)
+		menu.close();
+	end)
+
 end
 
 -- Tatics
@@ -88,11 +234,41 @@ MenuAnimTac = function()
 			{
 				label = Config.tatics1,
 				value = "tatics1"
+			},
+			{
+				label = Config.tatics2,
+				value = "tatics2"
+			},
+			{
+				label = Config.tatics3,
+				value = "tatics3"
+			},
+			{
+				label = Config.tatics4,
+				value = "tatics4"
+			},
+			{
+				label = Config.tatics5,
+				value = "tatics5"
+			},
+			{
+				label = Config.tatics6,
+				value = "tatics6"
 			}
 		}
 	}, function(data, menu)
-		if data.current.value == "tatics1" then
+		if data.current.value == "tatics2" then
 			hacerAnim(id, "anim@fog_rifle_relaxed", "rifle_relaxed_clip")
+		elseif data.current.value == "tatics1" then
+			hacerAnim(id, "anim@amb@world_human_valet@formal_right@base@", "base_a_m_y_vinewood_01")
+		elseif data.current.value == "tatics3" then
+			hacerAnim(PlayerPedId(), "anim@male@pose_weapon", "pose_weapon_clip")
+		elseif data.current.value == "tatics4" then
+			hacerAnim(PlayerPedId(), "anim@male@pose_weapon_3", "pose_weapon_3_clip")
+		elseif data.current.value == "tatics5" then
+			hacerAnim(PlayerPedId(), "anim@male@hug_weapon", "hug_weapon_clip")
+		elseif data.current.value == "tatics6" then
+			hacerAnim(PlayerPedId(), "anim@male@aim_weapon", "aim_weapon_clip")
 		end
 	end, function(data, menu)
 		menu.close();
@@ -654,6 +830,10 @@ MenuAnimsDrill = function()
 		align = Config.DrillAlign,
 		elements = {
 			{
+				label = Config.dancesdrill,
+				value = "menuBailes"
+			},
+			{
 				label = Config.drill1,
 				value = "drill1"
 			},
@@ -685,12 +865,94 @@ MenuAnimsDrill = function()
 			ExecuteCommand("posardrill4")
 		elseif data.current.value == "drill5" then
 			ExecuteCommand("posardrill5")
+		elseif data.current.value == "menuBailes" then
+			MenuBailesDrill()
 		end
 	end, function(data, menu)
 		menu.close();
 	end)
 end
 
+-- menu Bailes Drill
+
+MenuBailesDrill = function()
+
+	local id = PlayerPedId()
+	local name = GetPlayerName(PlayerId())
+
+	ESX.UI.Menu.CloseAll();
+
+	ESX.UI.Menu.Open("default", GetCurrentResourceName(), "menu_bailes_drill", {
+		title = Config.DanceDrillTitle,
+		align = Config.DanceDrillTitle,
+		elements = {
+			{
+				label = Config.dancesdril1,
+				value = "drill1"
+			},
+			{
+				label = Config.dancesdril2,
+				value = "drill2"
+			},
+			{
+				label = Config.dancesdril3,
+				value = "drill3"
+			},
+			{
+				label = Config.dancesdril4,
+				value = "drill4"
+			},
+			{
+				label = Config.dancesdril5,
+				value = "drill5"
+			},
+			{
+				label = Config.dancesdril6,
+				value = "drill6"
+			},
+			{
+				label = Config.dancesdril7,
+				value = "drill7"
+			},
+			{
+				label = Config.dancesdril8,
+				value = "drill8"
+			},
+			{
+				label = Config.dancesdril9,
+				value = "drill9"
+			},
+			{
+				label = Config.dancesdril10,
+				value = "drill10"
+			}
+		}
+	}, function(data, menu)
+		if data.current.value == "drill1" then
+			hacerAnim(id, "anim@amb@nightclub_island@dancers@crowddance_single_props@", "mi_dance_prop_13_v1_male^3")
+		elseif data.current.value == "drill2" then
+			hacerAnim(id, "anim@amb@nightclub_island@dancers@crowddance_groups@groupd@", "mi_dance_crowd_13_v2_male^1")
+		elseif data.current.value == "drill3" then
+			hacerAnim(id, "anim@amb@nightclub_island@dancers@crowddance_facedj@", "mi_dance_facedj_17_v2_male^4")
+		elseif data.current.value == "drill4" then
+			hacerAnim(id, "anim@amb@nightclub_island@dancers@crowddance_facedj@", "hi_dance_facedj_hu_15_v2_male^5")
+		elseif data.current.value == "drill5" then
+			hacerAnim(id, "anim@amb@nightclub_island@dancers@crowddance_facedj@", "hi_dance_facedj_hu_17_male^5")
+		elseif data.current.value == "drill6" then
+			hacerAnim(id, "anim@amb@nightclub@mini@dance@dance_solo@shuffle@", "high_right_up")
+		elseif data.current.value == "drill7" then
+			hacerAnim(id, "anim@amb@nightclub@mini@dance@dance_solo@shuffle@", "med_center")
+		elseif data.current.value == "drill8" then
+			hacerAnim(id, "anim@amb@nightclub@mini@dance@dance_solo@shuffle@", "high_right_down")
+		elseif data.current.value == "drill9" then
+			hacerAnim(id, "anim@amb@nightclub@mini@dance@dance_solo@shuffle@", "high_center")
+		elseif data.current.value == "drill10" then
+			hacerAnim(id, "anim@amb@nightclub@mini@dance@dance_solo@shuffle@", "high_left_down")
+		end
+	end, function(data, menu)
+		menu.close();
+	end)
+end
 -- Menú Perro
 
 MenuAnimsDog = function()

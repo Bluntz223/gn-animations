@@ -13,7 +13,7 @@
 Config = {}
 
 -- Keybind (Keymap)
-Config.keymap_name                  = "Menu de Animaciones Extras"
+Config.keymap_name                  = "Animaciones (Extras)"
 Config.key                          = "F9"
 
 -- General Menu Options
@@ -28,6 +28,14 @@ Config.CouplesAlign                 = "bottom-right"
 Config.DrillTitle                   = "Animaciones - Drill"
 Config.DrillAlign                   = "bottom-right"
 
+-- Menu Drill Options
+Config.DanceDrillTitle              = "Animaciones - Bailes Drill"
+Config.DanceDrillAlign              = "bottom-right"
+
+-- Menu Gang Options
+Config.GangTitle                    = "Animaciones - Bandas"
+Config.GangAlign                    = "bottom-right"
+
 -- Menu Wall Options
 Config.WallTitle                    = "Animaciones - Sentarse en Muros"
 Config.WallAlign                    = "bottom-right"
@@ -37,8 +45,8 @@ Config.SelfiesTitle                 = "Animaciones - Otros"
 Config.SelfiesAlign                 = "bottom-right"   
 
 -- Menu Tactics Options
-Config.TacTitle                 = "Animaciones - Tacticas"
-Config.TacAlign                 = "bottom-right" 
+Config.TacTitle                     = "Animaciones - Policiales y Tacticas"
+Config.TacAlign                     = "bottom-right" 
 
 -- Menu Dog Options
 Config.DogTitle                     = "Animaciones - Perros"
@@ -59,19 +67,56 @@ Config.DogAlign                     = "bottom-right"
 
 -- Menu Locales General
 Config.CoupleAnims                  = "Animaciones Parejas Conjuntas"
-Config.DrillAnims                   = "Animaciones Drill Conjuntas"
+Config.DrillAnims                   = "Animaciones Drill"
+Config.GangAnims                    = "Animaciones Bandas"
 Config.MurosAnims                   = "Animaciones Sentarse en Muros"
 Config.SelfiesAnims                 = "Animaciones Otros"
-Config.TacticsAnims                 = "Animaciones Tacticas"
+Config.TacticsAnims                 = "Animaciones Policiales y Tacticas"
 Config.DogAnims                     = "Animaciones Perros"
 Config.CancelAnim                   = "Cancelar animación"
 
 -- Menu Locales Drill
+Config.dancesdrill                  = "Bailes Drill"
 Config.drill1                       = "Pose Drill 1"
 Config.drill2                       = "Pose Drill 2"
 Config.drill3                       = "Pose Drill 3"
 Config.drill4                       = "Pose Drill 4"
 Config.drill5                       = "Pose Drill 5"
+
+-- Menu Locales Dances Drill
+Config.dancesdril1                   = "Baile Drill 1"
+Config.dancesdril2                   = "Baile Drill 2"
+Config.dancesdril3                   = "Baile Drill 3"
+Config.dancesdril4                   = "Baile Drill 4"
+Config.dancesdril5                   = "Baile Drill 5"
+Config.dancesdril6                   = "Baile Drill 6"
+Config.dancesdril7                   = "Baile Drill 7"
+Config.dancesdril8                   = "Baile Drill 8"
+Config.dancesdril9                   = "Baile Drill 9"
+Config.dancesdril10                  = "Baile Drill 10"
+
+-- Menu Locales Gangs
+Config.gangsign1                     = "Gang Sign 1"
+Config.gangsign2                     = "Gang Sign 2"
+Config.gangsign3                     = "Gang Sign 3"
+Config.gangsign4                     = "Gang Sign 4"
+Config.gangsign5                     = "Gang Sign 5"
+Config.gangsign6                     = "Gang Sign 6"
+Config.gangsign7                     = "Gang Sign 7"
+Config.gangsign8                     = "Gang Sign 8"
+Config.gangsign9                     = "Gang Sign 9"
+Config.gangsign10                    = "Gang Sign 10"
+Config.gangsign11                    = "Gang Sign 11"
+Config.gangsign12                    = "Gang Sign 12"
+Config.gangsign13                    = "Gang Sign 13"
+Config.gangsign14                    = "Gang Sign 14"
+Config.gangsign15                    = "Gang Sign 15"
+Config.gangsign16                    = "Gang Sign 16"
+Config.gangsign17                    = "Gang Sign 17"
+Config.gangsign18                    = "Gang Sign 18"
+Config.gangsign19                    = "Gang Sign 19"
+
+--Config.gangsign10                    = "Posar con Pistola"
 
 -- Menu Locales Wall
 Config.wall1                        = "Sentarse en muro 1"
@@ -158,7 +203,12 @@ Config.other53                     = "Pose 53"
 Config.other54                     = "Pose 54" 
 
 -- Menu Locale Tactis
-Config.tatics1                     = "Posar con arma 1"
+Config.tatics1                     = "Formar"
+Config.tatics2                     = "Posar con arma larga 1" 
+Config.tatics3                     = "Posar con arma larga 2" 
+Config.tatics4                     = "Posar con arma larga 3" 
+Config.tatics5                     = "Abrazar arma larga"
+Config.tatics6                     = "Apuntar con arma larga"
 
 -- Menu Locales Dog
 Config.sit_one                      = "Sentarse 1"

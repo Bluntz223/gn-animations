@@ -131,43 +131,7 @@ MenuAnimsGangs = function()
 			{
 				label = Config.gangsign10,
 				value = "gangsign10"
-			},
-			{
-				label = Config.gangsign11,
-				value = "gangsign11"
-			},
-			{
-				label = Config.gangsign12,
-				value = "gangsign12"
-			},
-			{
-				label = Config.gangsign13,
-				value = "gangsign13"
-			},
-			{
-				label = Config.gangsign14,
-				value = "gangsign14"
-			},
-			{
-				label = Config.gangsign15,
-				value = "gangsign15"
-			},
-			{
-				label = Config.gangsign16,
-				value = "gangsign16"
-			},
-			{
-				label = Config.gangsign17,
-				value = "gangsign17"
-			},
-			{
-				label = Config.gangsign18,
-				value = "gangsign18"
-			},
-			{
-				label = Config.gangsign19,
-				value = "gangsign19"
-			},
+			}
 		}
 	}, function(data, menu)
 		if data.current.value == "gangsign1" then
@@ -189,29 +153,7 @@ MenuAnimsGangs = function()
 		elseif data.current.value == "gangsign9" then
 			hacerAnim(id, "qpacc@gangsign8", "gangsign8_clip")
 		elseif data.current.value == "gangsign10" then
-			hacerAnim(PlayerPedId(), "azzsign@animation", "azzsign_clip")
-		elseif data.current.value == "gangsign11" then
-			hacerAnim(PlayerPedId(), "azzsign2@animation", "azzsign2_clip")
-		elseif data.current.value == "gangsign12" then
-			hacerAnim(PlayerPedId(), "azzsign3@animation", "azzsign3_clip")
-		elseif data.current.value == "gangsign13" then
-			hacerAnim(PlayerPedId(), "azzsign4@animation", "azzsign4_clip")
-		elseif data.current.value == "gangsign14" then
-			hacerAnim(PlayerPedId(), "azzsign5@animation", "azzsign5_clip")
-		elseif data.current.value == "gangsign15" then
-			hacerAnim(PlayerPedId(), "mogangsign1@animation", "mogangsign1_clip")
-		elseif data.current.value == "gangsign16" then
-			hacerAnim(PlayerPedId(), "mopose2@animation", "mopose2_clip")
-		elseif data.current.value == "gangsign17" then
-			hacerAnim(PlayerPedId(), "mopose3@animation", "mopose3_anim")
-		elseif data.current.value == "gangsign17" then
-			hacerAnim(PlayerPedId(), "mopose5@animation", "mopose5_clip")
-		elseif data.current.value == "gangsign18" then
-			hacerAnim(PlayerPedId(), "anim@male@holding_weapon_2", "holding_weapon_2_clip")
-		elseif data.current.value == "gangsign19" then
 			hacerAnim(id, "glock@animation", "dk_clip")
-		--elseif data.current.value == "gangsign10" then
-			--hacerAnim(id, "glock@animation", "dk_clip")
 		end
 	end, function(data, menu)
 		menu.close();
@@ -238,37 +180,13 @@ MenuAnimTac = function()
 			{
 				label = Config.tatics2,
 				value = "tatics2"
-			},
-			{
-				label = Config.tatics3,
-				value = "tatics3"
-			},
-			{
-				label = Config.tatics4,
-				value = "tatics4"
-			},
-			{
-				label = Config.tatics5,
-				value = "tatics5"
-			},
-			{
-				label = Config.tatics6,
-				value = "tatics6"
 			}
 		}
 	}, function(data, menu)
-		if data.current.value == "tatics2" then
+		if data.current.value == "tatics1" then
 			hacerAnim(id, "anim@fog_rifle_relaxed", "rifle_relaxed_clip")
 		elseif data.current.value == "tatics1" then
 			hacerAnim(id, "anim@amb@world_human_valet@formal_right@base@", "base_a_m_y_vinewood_01")
-		elseif data.current.value == "tatics3" then
-			hacerAnim(PlayerPedId(), "anim@male@pose_weapon", "pose_weapon_clip")
-		elseif data.current.value == "tatics4" then
-			hacerAnim(PlayerPedId(), "anim@male@pose_weapon_3", "pose_weapon_3_clip")
-		elseif data.current.value == "tatics5" then
-			hacerAnim(PlayerPedId(), "anim@male@hug_weapon", "hug_weapon_clip")
-		elseif data.current.value == "tatics6" then
-			hacerAnim(PlayerPedId(), "anim@male@aim_weapon", "aim_weapon_clip")
 		end
 	end, function(data, menu)
 		menu.close();

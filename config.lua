@@ -193,7 +193,12 @@ Config.other54                     = "Pose 54"
 
 -- Menu Locale Tactis
 Config.tatics1                     = "Posar con arma larga"
-Config.tatics2                     = "Formar con las manos atras"
+Config.tatics2                     = "Posar con arma larga 2"
+Config.tatics3                     = "Posar con arma larga 3"
+Config.tatics4                     = "Posar con arma larga 4"
+Config.tatics5                     = "Agarrarse del chaleco 1"
+Config.tatics6                     = "Agarrarse del chaleco 2"
+Config.tatics7                     = "Agarrarse del chaleco 3"
 
 -- Menu Locales Dog
 Config.sit_one                      = "Sentarse 1"

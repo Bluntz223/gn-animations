@@ -6,6 +6,7 @@ A animations menu made for FiveM roleplay server using ESX framework.
 - Drill animations
 - Sitting on wallanimations
 - Couples animations
+- Weapon animations
 - All can be configurable
 - All animations are addon
 

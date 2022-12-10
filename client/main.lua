@@ -180,13 +180,43 @@ MenuAnimTac = function()
 			{
 				label = Config.tatics2,
 				value = "tatics2"
+			},
+			{
+				label = Config.tatics3,
+				value = "tatics3"
+			},
+			{
+				label = Config.tatics4,
+				value = "tatics4"
+			},
+			{
+				label = Config.tatics5,
+				value = "tatics5"
+			},
+			{
+				label = Config.tatics6,
+				value = "tatics6"
+			},
+			{
+				label = Config.tatics7,
+				value = "tatics7"
 			}
 		}
 	}, function(data, menu)
 		if data.current.value == "tatics1" then
-			hacerAnim(id, "anim@fog_rifle_relaxed", "rifle_relaxed_clip")
-		elseif data.current.value == "tatics1" then
-			hacerAnim(id, "anim@amb@world_human_valet@formal_right@base@", "base_a_m_y_vinewood_01")
+			hacerAnim(id, "anim@male@holding_weapon_nvg", "rifle_relaxed_clip")
+		elseif data.current.value == "tatics2" then
+			hacerAnim(id, "anim@male@holding_weapon_2", "holding_weapon_2_clip")
+		elseif data.current.value == "tatics3" then
+			hacerAnim(id, "anim@male@pose_weapon", "pose_weapon_clip") 
+		elseif data.current.value == "tatics4" then
+			hacerAnim(id, "anim@male@pose_weapon_3", "pose_weapon_3_clip")
+		elseif data.current.value == "tatics5" then
+			hacerAnim(id, "anim@male@holding_vest", "holding_vest_clip")
+		elseif data.current.value == "tatics6" then
+			hacerAnim(id, "anim@holding_side_vest", "holding_side_vest_clip")
+		elseif data.current.value == "tatics7" then
+			hacerAnim(id, "anim@holding_siege_vest_side", "holding_siege_vest_side_clip")
 		end
 	end, function(data, menu)
 		menu.close();

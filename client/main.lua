@@ -204,7 +204,7 @@ MenuAnimTac = function()
 		}
 	}, function(data, menu)
 		if data.current.value == "tatics1" then
-			hacerAnim(id, "anim@male@holding_weapon_nvg", "rifle_relaxed_clip")
+			hacerAnim(id, "anim@fog_rifle_relaxed", "rifle_relaxed_clip")
 		elseif data.current.value == "tatics2" then
 			hacerAnim(id, "anim@male@holding_weapon_2", "holding_weapon_2_clip")
 		elseif data.current.value == "tatics3" then

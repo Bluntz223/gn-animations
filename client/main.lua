@@ -7,8 +7,11 @@ Citizen.CreateThread(function()
     end
 end)
 
-RegisterKeyMapping("MenuAnims", Config.keymap_name, "keyboard", Config.key);
-RegisterCommand("MenuAnims", function()
+local lastAnim = nil
+local lastDict = nil
+
+RegisterKeyMapping(Config.CommandName, Config.keymap_name, "keyboard", Config.key);
+RegisterCommand(Config.CommandName, function()
 	MenuAnimGeneral()
 end)
 
@@ -54,7 +57,7 @@ MenuAnimGeneral = function()
 			{
 				label = Config.CancelAnim,
 				value = "cancel"
-			},
+			}
 		}
 	}, function(data, menu)
 		if data.current.value == "couples" then
@@ -627,21 +630,37 @@ MenuAnimMuro = function()
 		}
 	}, function(data, menu)
 		if data.current.value == "wall1" then
-			ExecuteCommand("sitmuro1")
+			local pPed = PlayerPedId()
+			local coords = GetEntityCoords(pPed)
+			hacerAnimSit(pPed, coords,'WORLD_HUMAN_SEAT_LEDGE')
 		elseif data.current.value == "wall2" then
-			ExecuteCommand("sitmuro2")
+			local pPed = PlayerPedId()
+			local coords = GetEntityCoords(pPed)
+			hacerAnimSit(pPed, coords,'WORLD_HUMAN_SEAT_LEDGE_EATING')
 		elseif data.current.value == "wall3" then
-			ExecuteCommand("sitmuro3")
+			local pPed = PlayerPedId()
+			local coords = GetEntityCoords(pPed)
+			hacerAnimSit(pPed, coords,'WORLD_HUMAN_SEAT_WALL')
 		elseif data.current.value == "wall4" then
-			ExecuteCommand("sitmuro4")
+			local pPed = PlayerPedId()
+			local coords = GetEntityCoords(pPed)
+			hacerAnimSit(pPed, coords, 'WORLD_HUMAN_SEAT_WALL_EATING')
 		elseif data.current.value == "wall5" then
-			ExecuteCommand("sitmuro5")
+			local pPed = PlayerPedId()
+			local coords = GetEntityCoords(pPed)
+			hacerAnimSit(pPed, coords, 'PROP_HUMAN_SEAT_BENCH_DRINK_BEER')
 		elseif data.current.value == "wall6" then
-			ExecuteCommand("sitmuro6")
+			local pPed = PlayerPedId()
+			local coords = GetEntityCoords(pPed)
+			hacerAnimSit(pPed, coords, 'PROP_HUMAN_SEAT_BENCH_FOOD')
 		elseif data.current.value == "wall7" then
-			ExecuteCommand("sitmuro7")
+			local pPed = PlayerPedId()
+			local coords = GetEntityCoords(pPed)
+			hacerAnimSit(pPed, coords, 'PROP_HUMAN_SEAT_CHAIR_DRINK')
 		elseif data.current.value == "laddar1" then
-			ExecuteCommand("sitescalones")
+			local pPed = PlayerPedId()
+			local coords = GetEntityCoords(pPed)
+			hacerAnimSit(pPed, coords, 'WORLD_HUMAN_SEAT_STEPS')
 		end
 	end, function(data, menu)
 		menu.close();
@@ -728,37 +747,101 @@ MenuAnimsCouples = function()
 		}
 	}, function(data, menu)
 		if data.current.value == "couple1" then
-			ExecuteCommand("posar1")
+			local x = -0.37
+			local y = 0.0
+			local z = 0.00
+			local pPed = PlayerPedId()
+			hacerCouples(pPed, "lunyx@buddies01a", "buddies01a", x, y, z, "lunyx@buddies01b", "buddies01b")
 		elseif data.current.value == "couple2" then
-			ExecuteCommand("posar2")
+			local x = 0.40
+			local y = -0.23
+			local z = 0.00
+			local pPed = PlayerPedId()
+			hacerCouples(pPed, "lunyx@buddies02b", "buddies02b", x, y, z, "llunyx@buddies02a", "buddies02a")
 		elseif data.current.value == "couple3" then
-			ExecuteCommand("posar3")
+			local x = 0.22
+			local y = 0.20
+			local z = 0.00
+			local pPed = PlayerPedId()
+			hacerCouples(pPed, "lunyx@buddies03b", "buddies03b", x, y, z, "lunyx@buddies03a", "buddies03a")
 		elseif data.current.value == "couple4" then
-			ExecuteCommand("posar4")
+			local x = 0.33
+			local y = -0.03
+			local z = 0.00
+			local pPed = PlayerPedId()
+			hacerCouples(pPed, "lunyx@buddies04b", "buddies04b",x, y, z, "lunyx@buddies04a", "buddies04a")
 		elseif data.current.value == "couple5" then
-			ExecuteCommand("posar5")
+			local x = -0.03
+			local y = 0.27
+			local z = 0.00
+			local pPed = PlayerPedId()
+			hacerCouples(pPed, "lunyx@buddies05b", "buddies05b", x, y, z, "lunyx@buddies05a", "buddies05a")
 		elseif data.current.value == "couple6" then
-			ExecuteCommand("posar6")
+			local x = 0.07
+			local y = 0.31
+			local z = 0.00
+			local pPed = PlayerPedId()
+			hacerCouples(pPed, "syx@lmky02a", "lmky02a",x, y, z, "syx@lmky02b", "lmky02b")
 		elseif data.current.value == "couple7" then
-			ExecuteCommand("posar7")
+			local x = 0.05
+			local y = 0.37
+			local z = 0.00 
+			local pPed = PlayerPedId()
+			hacerCouples(pPed, "syx@lmky03a", "lmky03a",x, y, z, "syx@lmky03b", "lmky03b")
 		elseif data.current.value == "couple8" then
-			ExecuteCommand("posar8")
+			local x = 0.00
+			local y = 0.39
+			local z = -0.05
+			local pPed = PlayerPedId()
+			hacerCouples(pPed, "syx@lmky04a", "lmky04a", x, y, z, "syx@lmky04b", "lmky04b")
 		elseif data.current.value == "couple9" then
-			ExecuteCommand("posar9")
+			local x = 0.00
+			local y = 0.32
+			local z = -0.1
+			local pPed = PlayerPedId()
+			hacerCouples(pPed, "syx@lmky05a", "lmky05a", x, y, z, "syx@lmky05b", "lmky05b")
 		elseif data.current.value == "couple10" then
-			ExecuteCommand("posar10")
+			local x = -0.16
+			local y = 0.29
+			local z = 0.0
+			local pPed = PlayerPedId()
+			hacerCouples(pPed, "lunyx@casualcouple01a", "casualcouple01a", x, y, z, "lunyx@casualcouple01b", "casualcouple01b")
 		elseif data.current.value == "couple11" then
-			ExecuteCommand("posar11")
+			local x = 0.23
+			local y = 0.20
+			local z = 0.0
+			local pPed = PlayerPedId()
+			hacerCouples(pPed, "lunyx@casualcouple02a", "casualcouple02a",x, y, z, "lunyx@casualcouple02b", "casualcouple02b")
 		elseif data.current.value == "couple12" then
-			ExecuteCommand("posar12")
+			local x = -0.25
+			local y = 0.23
+			local z = 0.0
+			local pPed = PlayerPedId()
+			hacerCouples(pPed, "lunyx@casualcouple03a", "casualcouple03a", x, y, z, "lunyx@casualcouple03b", "casualcouple03b")
 		elseif data.current.value == "couple13" then
-			ExecuteCommand("posar13")
+			local x = -0.29
+			local y = 0.17
+			local z = 0.0
+			local pPed = PlayerPedId()
+			hacerCouples(pPed, "lunyx@casualcouple04a", "casualcouple04a", x, y, z, "lunyx@casualcouple04b", "casualcouple04b")
 		elseif data.current.value == "couple14" then
-			ExecuteCommand("posar14")
+			local x = -0.33
+			local y = 0.03
+			local z = 0.0
+			local pPed = PlayerPedId()
+			hacerCouples(pPed, "lunyx@casualcouple05a", "casualcouple05a", x, y, z, "lunyx@casualcouple05b", "casualcouple05b")
 		elseif data.current.value == "couple15" then
-			ExecuteCommand("posar15")
+			local x = -0.15
+			local y = 0.30
+			local z = 0.0
+			local pPed = PlayerPedId()
+			hacerCouples(pPed, "lunyx@casualcouple06a", "casualcouple06a", x, y, z, "lunyx@casualcouple06b", "casualcouple06b")
 		elseif data.current.value == "couple16" then
-			ExecuteCommand("posar16")
+			local x = -0.11
+			local y = -0.19
+			local z = 0.0
+			local pPed = PlayerPedId()
+			hacerCouples(pPed, "lunyx@casualcouple07a", "casualcouple07a", x, y, z, "lunyx@casualcouple07b", "casualcouple07b")
 		end
 	end, function(data, menu)
 		menu.close();
@@ -804,15 +887,15 @@ MenuAnimsDrill = function()
 		}
 	}, function(data, menu)
 		if data.current.value == "drill1" then
-			ExecuteCommand("posardrill1")
+			esxHacerAnim("cardo@drilla", "drilla")
 		elseif data.current.value == "drill2" then
-			ExecuteCommand("posardrill2")
+			esxHacerAnim("cardo@centralcee", "centralcee")
 		elseif data.current.value == "drill3" then
-			ExecuteCommand("posardrill3")
+			esxHacerAnim("cardo@lean", "lean")
 		elseif data.current.value == "drill4" then
-			ExecuteCommand("posardrill4")
+			esxHacerAnim("cardo@sitface", "sitface")
 		elseif data.current.value == "drill5" then
-			ExecuteCommand("posardrill5")
+			esxHacerAnim("cardo@step", "step")
 		elseif data.current.value == "menuBailes" then
 			MenuBailesDrill()
 		end
@@ -832,7 +915,7 @@ MenuBailesDrill = function()
 
 	ESX.UI.Menu.Open("default", GetCurrentResourceName(), "menu_bailes_drill", {
 		title = Config.DanceDrillTitle,
-		align = Config.DanceDrillTitle,
+		align = Config.DanceDrillAlign,
 		elements = {
 			{
 				label = Config.dancesdril1,
@@ -1012,270 +1095,30 @@ MenuAnimsDog = function()
 	end)
 end
 
--- Comandos animaciones
-  
-RegisterCommand('sitmuro1', function()
-    local pPed = PlayerPedId()
-    local coords = GetEntityCoords(pPed)
-    TaskStartScenarioAtPosition(pPed, 'WORLD_HUMAN_SEAT_LEDGE', coords.x, coords.y, coords.z- 1.0, GetEntityHeading(pPed), 0, false, true)
-end)
-  
-RegisterCommand('sitmuro2', function()
-    local pPed = PlayerPedId()
-    local coords = GetEntityCoords(pPed)
-    TaskStartScenarioAtPosition(pPed, 'WORLD_HUMAN_SEAT_LEDGE_EATING', coords.x, coords.y, coords.z-1.0 , GetEntityHeading(pPed), 0, false, true)
-  
-end)
-  
-RegisterCommand('sitmuro3', function()
-    local pPed = PlayerPedId()
-    local coords = GetEntityCoords(pPed)
-    TaskStartScenarioAtPosition(pPed, 'WORLD_HUMAN_SEAT_WALL', coords.x, coords.y, coords.z-1.0 , GetEntityHeading(pPed), 0, false, true)
-end)
-  
-RegisterCommand('sitmuro4', function()
-    local pPed = PlayerPedId()
-    local coords = GetEntityCoords(pPed)
-    TaskStartScenarioAtPosition(pPed, 'WORLD_HUMAN_SEAT_WALL_EATING', coords.x, coords.y, coords.z-1.0 , GetEntityHeading(pPed), 0, false, true)
-end)
-  
-RegisterCommand('sitmuro5', function()
-    local pPed = PlayerPedId()
-    local coords = GetEntityCoords(pPed)
-    TaskStartScenarioAtPosition(pPed, 'PROP_HUMAN_SEAT_BENCH_DRINK_BEER', coords.x, coords.y, coords.z-1.0 , GetEntityHeading(pPed), 0, false, true)
-end)
-  
-RegisterCommand('sitmuro6', function()
-    local pPed = PlayerPedId()
-    local coords = GetEntityCoords(pPed)
-    TaskStartScenarioAtPosition(pPed, 'PROP_HUMAN_SEAT_BENCH_FOOD', coords.x, coords.y, coords.z-1.0 , GetEntityHeading(pPed), 0, false, true)
-end)
+-- Funciones
+function esxHacerAnim(dic, name)
+	ESX.Streaming.RequestAnimDict(dic, function()
+        TaskPlayAnim(PlayerPedId(), dic, name, 8.0, 1.0, -1, 2, 0)
+    end) 
+end
 
-RegisterCommand('sitmuro7', function()
-    local pPed = PlayerPedId()
-    local coords = GetEntityCoords(pPed)
-    TaskStartScenarioAtPosition(pPed, 'PROP_HUMAN_SEAT_CHAIR_DRINK', coords.x, coords.y, coords.z-1.0 , GetEntityHeading(pPed), 0, false, true)
-end)
-  
-RegisterCommand('sitescalones', function()
-    local pPed = PlayerPedId()
-    local coords = GetEntityCoords(pPed)
-    TaskStartScenarioAtPosition(pPed, 'WORLD_HUMAN_SEAT_STEPS', coords.x, coords.y, coords.z-1.1 , GetEntityHeading(pPed), 0, false, true)
-end)
+function hacerAnimSit(pPed, coords, task)
+	TaskStartScenarioAtPosition(pPed, task, coords.x, coords.y, coords.z- 1.0, GetEntityHeading(pPed), 0, false, true)
+end
 
-
-local posarList = {
-	['posar1'] = {
-		first = {
-			animDict = "lunyx@buddies01a",
-			anim = "buddies01a",
-		},
-		second = {
-			animDict = "lunyx@buddies01b",
-			anim = "buddies01b",
-
-			attachX = -0.37,
-			attachY = 0.0,
-			attachZ = 0.00,
-		}
-	},
-	['posar2'] = {
-		first = {
-			animDict = "lunyx@buddies02b",
-			anim = "buddies02b",
-		},
-		second = {
-			animDict = "lunyx@buddies02a",
-			anim = "buddies02a",
-			attachX = 0.40,
-			attachY = -0.23,
-			attachZ = 0.00,
-		}
-	},
-	['posar3'] = {
-		first = {
-			animDict = "lunyx@buddies03b",
-			anim = "buddies03b",
-			
-		},
-		second = {
-			animDict = "lunyx@buddies03a",
-			anim = "buddies03a",
-			attachX = 0.22,
-			attachY = 0.20,
-			attachZ = 0.00,
-		}
-	},
-	['posar4'] = {
-		first = {
-			animDict = "lunyx@buddies04b",
-			anim = "buddies04b",
-		},
-		second = {
-			animDict = "lunyx@buddies04a",
-			anim = "buddies04a",
-			attachX = 0.33,
-			attachY = -0.03,
-			attachZ = 0.00,
-		}
-	},
-	['posar5'] = {
-		first = {
-			animDict = "lunyx@buddies05b",
-			anim = "buddies05b",
-		},
-		second = {
-			animDict = "lunyx@buddies05a",
-			anim = "buddies05a",
-			attachX = -0.03,
-			attachY = -0.27,
-			attachZ = 0.00,
-		}
-	},
-	['posar6'] = {
-		first = {
-			animDict = "syx@lmky02a",
-			anim = "lmky02a",
-		},
-		second = {
-			animDict = "syx@lmky02b",
-			anim = "lmky02b",
-			attachX = 0.07,
-			attachY = 0.31,
-			attachZ = 0.00,
-		}
-	},
-	['posar7'] = {
-		first = {
-			animDict = "syx@lmky03a",
-			anim = "lmky03a",
-		},
-		second = {
-			animDict = "syx@lmky03b",
-			anim = "lmky03b",
-			attachX = 0.05,
-			attachY = 0.37,
-			attachZ = 0.00,
-		}
-	},
-	['posar8'] = {
-		first = {
-			animDict = "syx@lmky04a",
-			anim = "lmky04a",
-		},
-		second = {
-			animDict = "syx@lmky04b",
-			anim = "lmky04b",
-			attachX = 0.00,
-			attachY = 0.39,
-			attachZ = -0.05,
-		}
-	},
-	['posar9'] = {
-		first = {
-			animDict = "syx@lmky05a",
-			anim = "lmky05a",
-		},
-		second = {
-			animDict = "syx@lmky05b",
-			anim = "lmky05b",
-			attachX = 0.00,
-			attachY = 0.32,
-			attachZ = -0.1,
-		}
-	},
-	['posar10'] = {
-		first = {
-			animDict = "lunyx@casualcouple01a",
-			anim = "casualcouple01a",
-		},
-		second = {
-			animDict = "lunyx@casualcouple01b",
-			anim = "casualcouple01b",
-			attachX = -0.16,
-			attachY = 0.29,
-			attachZ = 0.0,
-		}
-	},
-	['posar11'] = {
-		first = {
-			animDict = "lunyx@casualcouple02a",
-			anim = "casualcouple02a",
-		},
-		second = {
-			animDict = "lunyx@casualcouple02b",
-			anim = "casualcouple02b",
-			attachX = -0.23,
-			attachY = 0.20,
-			attachZ = 0.0,
-		}
-	},
-	['posar12'] = {
-		first = {
-			animDict = "lunyx@casualcouple03a",
-			anim = "casualcouple03a",
-		},
-		second = {
-			animDict = "lunyx@casualcouple03b",
-			anim = "casualcouple03b",
-			attachX = -0.25,
-			attachY = 0.23,
-			attachZ = 0.0,
-		}
-	},
-	['posar13'] = {
-		first = {
-			animDict = "lunyx@casualcouple04a",
-			anim = "casualcouple04a",
-		},
-		second = {
-			animDict = "lunyx@casualcouple04b",
-			anim = "casualcouple04b",
-			attachX = -0.29,
-			attachY = 0.17,
-			attachZ = 0.0,
-		}
-	},
-	['posar14'] = {
-		first = {
-			animDict = "lunyx@casualcouple05a",
-			anim = "casualcouple05a",
-		},
-		second = {
-			animDict = "lunyx@casualcouple05b",
-			anim = "casualcouple05b",
-			attachX = -0.33,
-			attachY = 0.03,
-			attachZ = 0.0,
-		}
-	},
-	['posar15'] = {
-		first = {
-			animDict = "lunyx@casualcouple06a",
-			anim = "casualcouple06a",
-		},
-		second = {
-			animDict = "lunyx@casualcouple06b",
-			anim = "casualcouple06b",
-			attachX = -0.15,
-			attachY = 0.30,
-			attachZ = 0.0,
-		}
-	},
-	['posar16'] = {
-		first = {
-			animDict = "lunyx@casualcouple07a",
-			anim = "casualcouple07a",
-		},
-		second = {
-			animDict = "lunyx@casualcouple07b",
-			anim = "casualcouple07b",
-			attachX = -0.11,
-			attachY = -0.19,
-			attachZ = 0.0,
-		}
-	},
-}
+function hacerAnim(source, dic, anima)
+	local ad = dic
+	local anim = anima
+	local player = source
+	if ( DoesEntityExist( player ) and not IsEntityDead( player )) then
+	  loadAnimDict( ad )
+		if ( IsEntityPlayingAnim( player, ad, anim, 3 ) ) then 
+			TaskPlayAnim( player, ad, "exit", 3.0, 1.0, -1, 01, 0, 0, 0, 0 )
+		else
+			TaskPlayAnim( player, ad, anim, 3.0, 1.0, -1, 01, 0, 0, 0, 0 )
+		end       
+	end
+end
 
 local function GetClosestPlayer(radius)
     local players = GetActivePlayers()
@@ -1302,8 +1145,6 @@ local function GetClosestPlayer(radius)
 	end
 end
 
-local lastAnim = nil
-local lastDict = nil
 local function Animate(dict, anim)
     ESX.Streaming.RequestAnimDict(dict, function()
         TaskPlayAnim(PlayerPedId(), dict, anim, 15.0, 0.0, -1, 2, 0, false, false, false)
@@ -1313,522 +1154,35 @@ local function Animate(dict, anim)
     end)
 end
 
-
-RegisterCommand("posar1", function(source, args)
-	local pPed = PlayerPedId()
-	if IsPedInAnyVehicle(pPed) then return end
-	local type = 'posar1'
-	if GetClosestPlayer(3) then
-		local closestPed = ESX.Game.GetClosestPed()
-		if IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) then 
-			AttachEntityToEntity(pPed, closestPed, 0, posarList[type].second.attachX, posarList[type].second.attachY, posarList[type].second.attachZ, 0.5, 0.5, 0.5, false, false, true, true, 2, true)
-			Animate(posarList[type].second.animDict, posarList[type].second.anim)
-			CreateThread(function()
-				while true do
-					Wait(250)
-					if not IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) or
-					not IsEntityPlayingAnim(pPed, posarList[type].second.animDict, posarList[type].second.anim, 3) then
-						ClearPedTasksImmediately(pPed)
-                        Wait(250)
-                        DetachEntity(pPed)
-						break
-					end
-				end
-			end)
-		else
-			Animate(posarList[type].first.animDict, posarList[type].first.anim)
-		end
-	else
-		Animate(posarList[type].first.animDict, posarList[type].first.anim)
-	end
-end, false)
-
-RegisterCommand("posar2", function(source, args)
-	local pPed = PlayerPedId()
-	if IsPedInAnyVehicle(pPed) then return end
-	local type = 'posar2'
-	if GetClosestPlayer(3) then
-		local closestPed = ESX.Game.GetClosestPed()
-		if IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) then 
-			AttachEntityToEntity(pPed, closestPed, 0, posarList[type].second.attachX, posarList[type].second.attachY, posarList[type].second.attachZ, 0.0, 0.0, 5.0, false, false, true, true, 2, true)
-			Animate(posarList[type].second.animDict, posarList[type].second.anim)
-			CreateThread(function()
-				while true do
-					Wait(250)
-					if not IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) or
-					not IsEntityPlayingAnim(pPed, posarList[type].second.animDict, posarList[type].second.anim, 3) then
-						ClearPedTasksImmediately(pPed)
-                        Wait(250)
-                        DetachEntity(pPed)
-						break
-					end
-				end
-			end)
-		else
-			Animate(posarList[type].first.animDict, posarList[type].first.anim)
-		end
-	else
-		Animate(posarList[type].first.animDict, posarList[type].first.anim)
-	end
-end, false)
-
-RegisterCommand("posar3", function(source, args)
-	local pPed = PlayerPedId()
-	if IsPedInAnyVehicle(pPed) then return end
-	local type = 'posar3'
-	if GetClosestPlayer(3) then
-		local closestPed = ESX.Game.GetClosestPed()
-		if IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) then 
-			AttachEntityToEntity(pPed, closestPed, 0, posarList[type].second.attachX, posarList[type].second.attachY, posarList[type].second.attachZ, 0.0, 0.0, 125.0, false, false, true, true, 2, true)
-			Animate(posarList[type].second.animDict, posarList[type].second.anim)
-			CreateThread(function()
-				while true do
-					Wait(250)
-					if not IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) or
-					not IsEntityPlayingAnim(pPed, posarList[type].second.animDict, posarList[type].second.anim, 3) then
-						ClearPedTasksImmediately(pPed)
-                        Wait(250)
-                        DetachEntity(pPed)
-						break
-					end
-				end
-			end)
-		else
-			Animate(posarList[type].first.animDict, posarList[type].first.anim)
-		end
-	else
-		Animate(posarList[type].first.animDict, posarList[type].first.anim)
-	end
-end, false)
-
-RegisterCommand("posar4", function(source, args)
-	local pPed = PlayerPedId()
-	if IsPedInAnyVehicle(pPed) then return end
-	local type = 'posar4'
-	if GetClosestPlayer(3) then
-		local closestPed = ESX.Game.GetClosestPed()
-		if IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) then 
-			AttachEntityToEntity(pPed, closestPed, 0, posarList[type].second.attachX, posarList[type].second.attachY, posarList[type].second.attachZ, 0.0, 0.0, -10.0, false, false, true, true, 2, true)
-			Animate(posarList[type].second.animDict, posarList[type].second.anim)
-			CreateThread(function()
-				while true do
-					Wait(250)
-					if not IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) or
-					not IsEntityPlayingAnim(pPed, posarList[type].second.animDict, posarList[type].second.anim, 3) then
-						ClearPedTasksImmediately(pPed)
-                        Wait(250)
-                        DetachEntity(pPed)
-						break
-					end
-				end
-			end)
-		else
-			Animate(posarList[type].first.animDict, posarList[type].first.anim)
-		end
-	else
-		Animate(posarList[type].first.animDict, posarList[type].first.anim)
-	end
-end, false)
-
-RegisterCommand("posar5", function(source, args)
-	local pPed = PlayerPedId()
-	if IsPedInAnyVehicle(pPed) then return end
-	local type = 'posar5'
-	if GetClosestPlayer(3) then
-		local closestPed = ESX.Game.GetClosestPed()
-		if IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) then 
-			AttachEntityToEntity(pPed, closestPed, 0, posarList[type].second.attachX, posarList[type].second.attachY, posarList[type].second.attachZ, 0.0, 0.0, 175.0, false, false, true, true, 2, true)
-			Animate(posarList[type].second.animDict, posarList[type].second.anim)
-			CreateThread(function()
-				while true do
-					Wait(250)
-					if not IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) or
-					not IsEntityPlayingAnim(pPed, posarList[type].second.animDict, posarList[type].second.anim, 3) then
-						ClearPedTasksImmediately(pPed)
-                        Wait(250)
-                        DetachEntity(pPed)
-						break
-					end
-				end
-			end)
-		else
-			Animate(posarList[type].first.animDict, posarList[type].first.anim)
-		end
-	else
-		Animate(posarList[type].first.animDict, posarList[type].first.anim)
-	end
-end, false)
-
-RegisterCommand("posar6", function(source, args)
-	local pPed = PlayerPedId()
-	if IsPedInAnyVehicle(pPed) then return end
-	local type = 'posar6'
-	if GetClosestPlayer(3) then
-		local closestPed = ESX.Game.GetClosestPed()
-		if IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) then 
-			AttachEntityToEntity(pPed, closestPed, 0, posarList[type].second.attachX, posarList[type].second.attachY, posarList[type].second.attachZ, 0.0, 0.0, 135.0, false, false, true, true, 2, true)
-			Animate(posarList[type].second.animDict, posarList[type].second.anim)
-			CreateThread(function()
-				while true do
-					Wait(250)
-					if not IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) or
-					not IsEntityPlayingAnim(pPed, posarList[type].second.animDict, posarList[type].second.anim, 3) then
-						ClearPedTasksImmediately(pPed)
-                        Wait(250)
-                        DetachEntity(pPed)
-						break
-					end
-				end
-			end)
-		else
-			Animate(posarList[type].first.animDict, posarList[type].first.anim)
-		end
-	else
-		Animate(posarList[type].first.animDict, posarList[type].first.anim)
-	end
-end, false)
-
-RegisterCommand("posar7", function(source, args)
-	local pPed = PlayerPedId()
-	if IsPedInAnyVehicle(pPed) then return end
-	local type = 'posar7'
-	if GetClosestPlayer(3) then
-		local closestPed = ESX.Game.GetClosestPed()
-		if IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) then 
-			AttachEntityToEntity(pPed, closestPed, 0, posarList[type].second.attachX, posarList[type].second.attachY, posarList[type].second.attachZ, 0.0, 0.0, -70.0, false, false, true, true, 2, true)
-			Animate(posarList[type].second.animDict, posarList[type].second.anim)
-			CreateThread(function()
-				while true do
-					Wait(250)
-					if not IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) or
-					not IsEntityPlayingAnim(pPed, posarList[type].second.animDict, posarList[type].second.anim, 3) then
-						ClearPedTasksImmediately(pPed)
-                        Wait(250)
-                        DetachEntity(pPed)
-						break
-					end
-				end
-			end)
-		else
-			Animate(posarList[type].first.animDict, posarList[type].first.anim)
-		end
-	else
-		Animate(posarList[type].first.animDict, posarList[type].first.anim)
-	end
-end, false)
-
-RegisterCommand("posar8", function(source, args)
-	local pPed = PlayerPedId()
-	if IsPedInAnyVehicle(pPed) then return end
-	local type = 'posar8'
-	if GetClosestPlayer(3) then
-		local closestPed = ESX.Game.GetClosestPed()
-		if IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) then 
-			AttachEntityToEntity(pPed, closestPed, 0, posarList[type].second.attachX, posarList[type].second.attachY, posarList[type].second.attachZ, 0.0, 0.0, -90.0, false, false, true, true, 2, true)
-			Animate(posarList[type].second.animDict, posarList[type].second.anim)
-			CreateThread(function()
-				while true do
-					Wait(250)
-					if not IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) or
-					not IsEntityPlayingAnim(pPed, posarList[type].second.animDict, posarList[type].second.anim, 3) then
-						ClearPedTasksImmediately(pPed)
-                        Wait(250)
-                        DetachEntity(pPed)
-						break
-					end
-				end
-			end)
-		else
-			Animate(posarList[type].first.animDict, posarList[type].first.anim)
-		end
-	else
-		Animate(posarList[type].first.animDict, posarList[type].first.anim)
-	end
-end, false)
-
-RegisterCommand("posar9", function(source, args)
-	local pPed = PlayerPedId()
-	if IsPedInAnyVehicle(pPed) then return end
-	local type = 'posar9'
-	if GetClosestPlayer(3) then
-		local closestPed = ESX.Game.GetClosestPed()
-		if IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) then 
-			AttachEntityToEntity(pPed, closestPed, 0, posarList[type].second.attachX, posarList[type].second.attachY, posarList[type].second.attachZ, 0.0, 0.0, 0.0, false, false, true, true, 2, true)
-			Animate(posarList[type].second.animDict, posarList[type].second.anim)
-			CreateThread(function()
-				while true do
-					Wait(250)
-					if not IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) or
-					not IsEntityPlayingAnim(pPed, posarList[type].second.animDict, posarList[type].second.anim, 3) then
-						ClearPedTasksImmediately(pPed)
-                        Wait(250)
-                        DetachEntity(pPed)
-						break
-					end
-				end
-			end)
-		else
-			Animate(posarList[type].first.animDict, posarList[type].first.anim)
-		end
-	else
-		Animate(posarList[type].first.animDict, posarList[type].first.anim)
-	end
-end, false)
-
-RegisterCommand("posar10", function(source, args)
-	local pPed = PlayerPedId()
-	if IsPedInAnyVehicle(pPed) then return end
-	local type = 'posar10'
-	if GetClosestPlayer(3) then
-		local closestPed = ESX.Game.GetClosestPed()
-		if IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) then 
-			AttachEntityToEntity(pPed, closestPed, 0, posarList[type].second.attachX, posarList[type].second.attachY, posarList[type].second.attachZ, 0.0, 0.0, 0.0, false, false, true, true, 2, true)
-			Animate(posarList[type].second.animDict, posarList[type].second.anim)
-			CreateThread(function()
-				while true do
-					Wait(250)
-					if not IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) or
-					not IsEntityPlayingAnim(pPed, posarList[type].second.animDict, posarList[type].second.anim, 3) then
-						ClearPedTasksImmediately(pPed)
-                        Wait(250)
-                        DetachEntity(pPed)
-						break
-					end
-				end
-			end)
-		else
-			Animate(posarList[type].first.animDict, posarList[type].first.anim)
-		end
-	else
-		Animate(posarList[type].first.animDict, posarList[type].first.anim)
-	end
-end, false)
-
-RegisterCommand("posar11", function(source, args)
-	local pPed = PlayerPedId()
-	if IsPedInAnyVehicle(pPed) then return end
-	local type = 'posar11'
-	if GetClosestPlayer(3) then
-		local closestPed = ESX.Game.GetClosestPed()
-		if IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) then 
-			AttachEntityToEntity(pPed, closestPed, 0, posarList[type].second.attachX, posarList[type].second.attachY, posarList[type].second.attachZ, 0.0, 0.0, 240.0, false, false, true, true, 2, true)
-			Animate(posarList[type].second.animDict, posarList[type].second.anim)
-			CreateThread(function()
-				while true do
-					Wait(250)
-					if not IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) or
-					not IsEntityPlayingAnim(pPed, posarList[type].second.animDict, posarList[type].second.anim, 3) then
-						ClearPedTasksImmediately(pPed)
-                        Wait(250)
-                        DetachEntity(pPed)
-						break
-					end
-				end
-			end)
-		else
-			Animate(posarList[type].first.animDict, posarList[type].first.anim)
-		end
-	else
-		Animate(posarList[type].first.animDict, posarList[type].first.anim)
-	end
-end, false)
-
-RegisterCommand("posar12", function(source, args)
-	local pPed = PlayerPedId()
-	if IsPedInAnyVehicle(pPed) then return end
-	local type = 'posar12'
-	if GetClosestPlayer(3) then
-		local closestPed = ESX.Game.GetClosestPed()
-		if IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) then 
-			AttachEntityToEntity(pPed, closestPed, 0, posarList[type].second.attachX, posarList[type].second.attachY, posarList[type].second.attachZ, 0.0, 0.0, -50.0, false, false, true, true, 2, true)
-			Animate(posarList[type].second.animDict, posarList[type].second.anim)
-			CreateThread(function()
-				while true do
-					Wait(250)
-					if not IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) or
-					not IsEntityPlayingAnim(pPed, posarList[type].second.animDict, posarList[type].second.anim, 3) then
-						ClearPedTasksImmediately(pPed)
-                        Wait(250)
-                        DetachEntity(pPed)
-						break
-					end
-				end
-			end)
-		else
-			Animate(posarList[type].first.animDict, posarList[type].first.anim)
-		end
-	else
-		Animate(posarList[type].first.animDict, posarList[type].first.anim)
-	end
-end, false)
-
-RegisterCommand("posar13", function(source, args)
-	local pPed = PlayerPedId()
-	if IsPedInAnyVehicle(pPed) then return end
-	local type = 'posar13'
-	if GetClosestPlayer(3) then
-		local closestPed = ESX.Game.GetClosestPed()
-		if IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) then 
-			AttachEntityToEntity(pPed, closestPed, 0, posarList[type].second.attachX, posarList[type].second.attachY, posarList[type].second.attachZ, 0.0, 0.0, -85.0, false, false, true, true, 2, true)
-			Animate(posarList[type].second.animDict, posarList[type].second.anim)
-			CreateThread(function()
-				while true do
-					Wait(250)
-					if not IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) or
-					not IsEntityPlayingAnim(pPed, posarList[type].second.animDict, posarList[type].second.anim, 3) then
-						ClearPedTasksImmediately(pPed)
-                        Wait(250)
-                        DetachEntity(pPed)
-						break
-					end
-				end
-			end)
-		else
-			Animate(posarList[type].first.animDict, posarList[type].first.anim)
-		end
-	else
-		Animate(posarList[type].first.animDict, posarList[type].first.anim)
-	end
-end, false)
-
-RegisterCommand("posar14", function(source, args)
-	local pPed = PlayerPedId()
-	if IsPedInAnyVehicle(pPed) then return end
-	local type = 'posar14'
-	if GetClosestPlayer(3) then
-		local closestPed = ESX.Game.GetClosestPed()
-		if IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) then 
-			AttachEntityToEntity(pPed, closestPed, 0, posarList[type].second.attachX, posarList[type].second.attachY, posarList[type].second.attachZ, 0.0, 0.0, -23.0, false, false, true, true, 2, true)
-			Animate(posarList[type].second.animDict, posarList[type].second.anim)
-			CreateThread(function()
-				while true do
-					Wait(250)
-					if not IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) or
-					not IsEntityPlayingAnim(pPed, posarList[type].second.animDict, posarList[type].second.anim, 3) then
-						ClearPedTasksImmediately(pPed)
-                        Wait(250)
-                        DetachEntity(pPed)
-						break
-					end
-				end
-			end)
-		else
-			Animate(posarList[type].first.animDict, posarList[type].first.anim)
-		end
-	else
-		Animate(posarList[type].first.animDict, posarList[type].first.anim)
-	end
-end, false)
-
-RegisterCommand("posar15", function(source, args)
-	local pPed = PlayerPedId()
-	if IsPedInAnyVehicle(pPed) then return end
-	local type = 'posar15'
-	if GetClosestPlayer(3) then
-		local closestPed = ESX.Game.GetClosestPed()
-		if IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) then 
-			AttachEntityToEntity(pPed, closestPed, 0, posarList[type].second.attachX, posarList[type].second.attachY, posarList[type].second.attachZ, 0.0, 0.0, -150.0, false, false, true, true, 2, true)
-			Animate(posarList[type].second.animDict, posarList[type].second.anim)
-			CreateThread(function()
-				while true do
-					Wait(250)
-					if not IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) or
-					not IsEntityPlayingAnim(pPed, posarList[type].second.animDict, posarList[type].second.anim, 3) then
-						ClearPedTasksImmediately(pPed)
-                        Wait(250)
-                        DetachEntity(pPed)
-						break
-					end
-				end
-			end)
-		else
-			Animate(posarList[type].first.animDict, posarList[type].first.anim)
-		end
-	else
-		Animate(posarList[type].first.animDict, posarList[type].first.anim)
-	end
-end, false)
-
-RegisterCommand("posar16", function(source, args)
-	local pPed = PlayerPedId()
-	if IsPedInAnyVehicle(pPed) then return end
-	local type = 'posar16'
-	if GetClosestPlayer(3) then
-		local closestPed = ESX.Game.GetClosestPed()
-		if IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) then 
-			AttachEntityToEntity(pPed, closestPed, 0, posarList[type].second.attachX, posarList[type].second.attachY, posarList[type].second.attachZ, 0.0, 0.0, 0.0, false, false, true, true, 2, true)
-			Animate(posarList[type].second.animDict, posarList[type].second.anim)
-			CreateThread(function()
-				while true do
-					Wait(250)
-					if not IsEntityPlayingAnim(closestPed, posarList[type].first.animDict, posarList[type].first.anim, 3) or
-					not IsEntityPlayingAnim(pPed, posarList[type].second.animDict, posarList[type].second.anim, 3) then
-						ClearPedTasksImmediately(pPed)
-                        Wait(250)
-                        DetachEntity(pPed)
-						break
-					end
-				end
-			end)
-		else
-			Animate(posarList[type].first.animDict, posarList[type].first.anim)
-		end
-	else
-		Animate(posarList[type].first.animDict, posarList[type].first.anim)
-	end
-end, false)
-
-RegisterCommand('posardrill1', function()
-    ESX.Streaming.RequestAnimDict('cardo@drilla', function()
-        TaskPlayAnim(PlayerPedId(), "cardo@drilla", "drilla", 8.0, 1.0, -1, 2, 0)
-    end) 
-end)
-
-RegisterCommand('posardrill2', function()
-    ESX.Streaming.RequestAnimDict('cardo@centralcee', function()
-        TaskPlayAnim(PlayerPedId(), "cardo@centralcee", "centralcee", 8.0, 1.0, -1, 2, 0)
-    end) 
-end)
-
-RegisterCommand('posardrill3', function()
-    ESX.Streaming.RequestAnimDict('cardo@lean', function()
-        TaskPlayAnim(PlayerPedId(), "cardo@lean", "lean", 8.0, 1.0, -1, 2, 0)
-    end) 
-end)
-
-RegisterCommand('posardrill4', function()
-    ESX.Streaming.RequestAnimDict('cardo@sitface', function()
-        TaskPlayAnim(PlayerPedId(), "cardo@sitface", "sitface", 8.0, 1.0, -1, 2, 0)
-    end) 
-end)
-
-RegisterCommand('posardrill5', function()
-    ESX.Streaming.RequestAnimDict('cardo@step', function()
-        TaskPlayAnim(PlayerPedId(), "cardo@step", "step", 8.0, 1.0, -1, 2, 0)
-    end) 
-end)
-
--- Funciones
-
-function hacerAnim(source, dic, anima)
-	local ad = dic
-	local anim = anima
-	local player = source
-	
-  
-	if ( DoesEntityExist( player ) and not IsEntityDead( player )) then
-	  loadAnimDict( ad )
-		if ( IsEntityPlayingAnim( player, ad, anim, 3 ) ) then 
-			TaskPlayAnim( player, ad, "exit", 3.0, 1.0, -1, 01, 0, 0, 0, 0 )
-		else
-			TaskPlayAnim( player, ad, anim, 3.0, 1.0, -1, 01, 0, 0, 0, 0 )
-		end       
-	end
-end
-  
 function loadAnimDict(dict)
 	while (not HasAnimDictLoaded(dict)) do
 		RequestAnimDict(dict)
 		Citizen.Wait(5)
+	end
+end
+
+function hacerCouples(pPed, firstanimDict, firstanim, attachX, attachY, attachZ, secondanimDict, secondanim)
+	if IsPedInAnyVehicle(pPed) then return end
+	if GetClosestPlayer(3) then
+		local closestPed = ESX.Game.GetClosestPed()
+		if IsEntityPlayingAnim(closestPed, firstanimDict, firstanim, 3) then 
+			AttachEntityToEntity(pPed, closestPed, 0, attachX, attachY, attachZ, 0.5, 0.5, 0.5, false, false, true, true, 2, true)
+			Animate(secondanimDict, secondanim)
+			CreateThread(function()
+				while true do
+					Wait(250)
+					if not IsEntityPlayingAnim(closestPed, firstanimDict, firstanim, 3) or not IsEntityPlayingAnim(pPed, secondanimDict, secondanim, 3) then
+						ClearPedTasksImmediately(pPed)
+						Wait(250)
+                        DetachEntity(pPed)	
+						break
+					end	
+				end	
+			end)
+		else
+			Animate(firstanimDict, firstanim)
+		end
+	else
+		Animate(firstanimDict, firstanim)
 	end
 end
